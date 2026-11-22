@@ -78,7 +78,7 @@ var Rooms = (function () {
         { x: 300, y: 140, w: 150, h: 60, kind: "shelf", label: "VAULT LEDGER" },
         { x: 1080, y: 690, w: 150, h: 70, kind: "crate", label: "BRASS CRATES" },
         { x: 480, y: 300, w: 110, h: 90, kind: "table", label: "STAR GLOBE" },
-        { x: 940, y: 640, w: 120, h: 70, kind: "table", label: "ORERRY" }
+        { x: 940, y: 640, w: 120, h: 70, kind: "table", label: "ORRERY" }
       ],
       guards: [
         { path: [[600, 130], [980, 130], [980, 560], [640, 560]], speed: 1.35, name: "MARA" },

@@ -205,19 +205,20 @@ var Render = (function () {
       // Zipline cable running off the roof to the night sky.
       ctx.strokeStyle = "#c9a227";
       ctx.lineWidth = 3;
-      ctx.beginPath(); ctx.moveTo(e.x + e.w / 2, e.y + e.h / 2); ctx.lineTo(1278, 60); ctx.stroke();
+      ctx.beginPath(); ctx.moveTo(e.x + e.w / 2, e.y + e.h / 2); ctx.lineTo(1256, 64); ctx.stroke();
       ctx.textAlign = "right";
-      ctx.fillText("ZIPLINE →", 1272, e.y + e.h + 20);
-      ctx.fillText(hasLoot ? "GO! GO! GO!" : "NEED THE DIAMOND", 1272, e.y - 8);
+      ctx.fillText("ZIPLINE →", 1254, e.y + e.h + 20);
+      ctx.fillText(hasLoot ? "GO! GO! GO!" : "NEED THE DIAMOND", 1254, e.y - 8);
       ctx.textAlign = "center";
     } else {
-      // The east door is flush with the right edge: label it to its left.
+      // The east door is flush with the right edge: label it well to its
+      // left, anchored inside the canvas with a clear gap from the door.
       ctx.textAlign = "right";
-      ctx.fillText("◀ " + level.exitLabel, e.x - 10, e.y + e.h / 2 + 5);
+      ctx.fillText("◀ " + level.exitLabel, e.x - 26, e.y + e.h / 2 + 5);
       if (!hasLoot) {
         ctx.fillStyle = "#ccc";
         ctx.font = "11px sans-serif";
-        ctx.fillText("NEED THE LOOT", e.x - 10, e.y - 8);
+        ctx.fillText("NEED THE LOOT", e.x - 26, e.y - 8);
       }
       ctx.textAlign = "center";
     }
@@ -297,7 +298,9 @@ var Render = (function () {
     ctx.beginPath(); ctx.arc(p.x, p.y, 5, 0, Math.PI * 2); ctx.fill();
     ctx.fillStyle = "#fff";
     ctx.font = "bold 11px sans-serif"; ctx.textAlign = "center";
-    ctx.fillText("YOU · THIEF", p.x, p.y - 22);
+    // Keep the tag inside the canvas: the thief can walk to the edge.
+    var lx = Math.max(250, Math.min(p.x, 1225));
+    ctx.fillText("YOU · THIEF", lx, p.y - 22);
   }
 
   function drawSmoke(ctx, tools) {
